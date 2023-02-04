@@ -15,6 +15,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import {MatButtonModule} from '@angular/material/button';
 
 import {MatInputModule} from '@angular/material/input';
 import { MainComponent } from './main/main.component';
@@ -42,7 +43,8 @@ import { StarshipComponent } from './starship/starship.component';
     MatFormFieldModule,
     MatInputModule,
     MatNativeDateModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

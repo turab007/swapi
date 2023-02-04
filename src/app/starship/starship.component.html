@@ -1,11 +1,9 @@
-<p>starship works!</p>
-
+<div class="tableDiv">
 <mat-form-field appearance="fill">
-  <mat-label>Type here</mat-label>
+  <mat-label>Search starships</mat-label>
   <input matInput (input)="applyFilter($event)" placeholder="Eg. Hoth" #input>
 </mat-form-field>
 
-<div class="tableDiv">
   <table *ngIf="starshipObject" mat-table [dataSource]="starshipObject.results" class="mat-elevation-z8" matSort matSortActive="name"
   matSortDisableClear matSortDirection="desc">
 

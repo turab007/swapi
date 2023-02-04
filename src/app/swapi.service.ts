@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { PeopleObj } from './models/peopleObj.model';
+import {People} from './models/people.model';
 import { PlanetObj } from './models/planetObj.model';
 import {Starship} from './models/starship.model';
 import {StarshipObj} from './models/starshipObj.model';
@@ -26,6 +27,11 @@ export class SwapiService {
       }
     });
     return this.http.get<PeopleObj>(`${this.base_url}/people/`, { params: params });
+  }
+
+
+  getSinglePeople(url: string): Observable<People> {
+    return this.http.get<People>(url);
   }
 
   getPlanets(page: number): Observable<PlanetObj> {

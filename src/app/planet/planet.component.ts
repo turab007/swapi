@@ -28,7 +28,7 @@ export class PlanetComponent implements OnInit {
 
     do {
 
-      let page= 1;
+      let page = 1;
       this.swapiService.getPlanets(page).subscribe(res => {
         this.planetObject = res;
         console.log('res', this.planet);
@@ -38,7 +38,7 @@ export class PlanetComponent implements OnInit {
   }
 
   vehicles: any;
-  displayedColumns: string[] = ['name', 'population', 'residents', 'climate'];
+  displayedColumns: string[] = ['name', 'population', 'terrain', 'residents', 'climate'];
 
   dataSource: any;
   planet: Planet[] = [];
@@ -53,8 +53,25 @@ export class PlanetComponent implements OnInit {
   applyFilter(event: Event) {
     const searchQuery = (event.target as HTMLInputElement).value;
     this.searchSubject.next(searchQuery?.trim());
-
   }
+
+  // listResidents(element: Planet) {
+  //   let residents: string[] = []
+  //    element.residents.forEach(resident => {
+  //     this.swapiService.getSinglePeople(resident).subscribe(res => {
+  //       residents.push(res.name);
+  //     })
+  //   });
+  //  element.residents = residents;
+
+  //   this.planetObject.results.forEach((planet, index) => {
+  //     if (planet.name === element.name) {
+  //       this.planetObject.results[index] = element;
+
+  //     }
+  //   })
+
+  // }
 
 
 }

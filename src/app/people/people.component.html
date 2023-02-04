@@ -1,9 +1,9 @@
+<div class="tableDiv">
 <mat-form-field appearance="fill">
-  <mat-label>Type here</mat-label>
+  <mat-label>Search people</mat-label>
   <input matInput (input)="applyFilter($event)" placeholder="Eg. Hoth" #input>
 </mat-form-field>
 
-<div class="tableDiv">
   <table *ngIf="peopleObject" mat-table [dataSource]="peopleObject.results" class="mat-elevation-z8" matSort
     matSortActive="name" matSortDisableClear matSortDirection="desc">
 
