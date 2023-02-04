@@ -1,0 +1,17 @@
+<div id="mainDiv">
+  <h1>Star Wars API</h1>
+  <div>
+    <mat-button-toggle-group #group="matButtonToggleGroup" aria-label="Font Style" value="planet">
+      <mat-button-toggle value="planet">Planet</mat-button-toggle>
+    <mat-button-toggle value="people">People</mat-button-toggle>
+    <mat-button-toggle value="starship">Starship</mat-button-toggle>
+  </mat-button-toggle-group>
+</div>
+</div>
+<hr>
+
+<app-planet *ngIf="group.value === 'planet'"></app-planet>
+
+<app-people *ngIf="group.value === 'people'"></app-people>
+
+<app-starship *ngIf="group.value === 'starship'" ></app-starship>

@@ -2,16 +2,16 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { SwapiService } from '../swapi.service';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { Planet } from '../models/planet.model';
-import { PlanetObj } from '../models/planetObj.model';
-import { Subject, Subscription, debounceTime, distinctUntilChanged, switchMap } from 'rxjs';
+import { Starship } from '../models/starship.model';
+import { StarshipObj } from '../models/starshipObj.model';
+import { Subject, Subscription, debounceTime, distinctUntilChanged, switchMap, Observable } from 'rxjs';
 
 @Component({
-  selector: 'app-planet',
-  templateUrl: './planet.component.html',
-  styleUrls: ['./planet.component.css']
+  selector: 'app-starship',
+  templateUrl: './starship.component.html',
+  styleUrls: ['./starship.component.css']
 })
-export class PlanetComponent implements OnInit {
+export class StarshipComponent implements OnInit {
 
   constructor(private swapiService: SwapiService) {
   }
@@ -20,29 +20,29 @@ export class PlanetComponent implements OnInit {
       .pipe(
         debounceTime(300),
         distinctUntilChanged(),
-        switchMap((searchQuery) => this.swapiService.searchPlanet(searchQuery))
+        switchMap((searchQuery) => this.swapiService.searchStarships(searchQuery))
       )
       .subscribe((results) => {
-        this.planetObject = results;
+        this.starshipObject = results;
       });
 
     do {
 
-      let page= 1;
-      this.swapiService.getPlanets(page).subscribe(res => {
-        this.planetObject = res;
-        console.log('res', this.planet);
+      let page = 1;
+      this.swapiService.getStarships(page).subscribe(res => {
+        this.starshipObject = res;
+        console.log('res', this.starship);
         page++;
       })
-    } while (this.planetObject && this.planetObject.next)
+    } while (this.starshipObject && this.starshipObject.next)
   }
 
   vehicles: any;
-  displayedColumns: string[] = ['name', 'population', 'residents', 'climate'];
+  displayedColumns: string[] = ['name', 'model', 'manufacturer', 'length', 'passengers'];
 
   dataSource: any;
-  planet: Planet[] = [];
-  planetObject!: PlanetObj;
+  starship: Starship[] = [];
+  starshipObject!: StarshipObj;
   private readonly searchSubject = new Subject<string>();
   private searchSubscription?: Subscription;
 
@@ -55,6 +55,5 @@ export class PlanetComponent implements OnInit {
     this.searchSubject.next(searchQuery?.trim());
 
   }
-
 
 }
