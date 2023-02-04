@@ -26,15 +26,12 @@ export class StarshipComponent implements OnInit {
         this.starshipObject = results;
       });
 
-    do {
-
       let page = 1;
       this.swapiService.getStarships(page).subscribe(res => {
         this.starshipObject = res;
         console.log('res', this.starship);
         page++;
       })
-    } while (this.starshipObject && this.starshipObject.next)
   }
 
   vehicles: any;

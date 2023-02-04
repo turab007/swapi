@@ -27,15 +27,12 @@ export class PeopleComponent implements OnInit {
         this.peopleObject = results;
       });
 
-    do {
-
       let page= 1;
       this.swapiService.getPeople(page).subscribe(res => {
         this.peopleObject = res;
         console.log('res', this.people);
         page++;
       })
-    } while (this.peopleObject && this.peopleObject.next)
   }
 
   vehicles: any;

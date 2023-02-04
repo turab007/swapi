@@ -26,15 +26,13 @@ export class PlanetComponent implements OnInit {
         this.planetObject = results;
       });
 
-    do {
-
       let page = 1;
       this.swapiService.getPlanets(page).subscribe(res => {
         this.planetObject = res;
         console.log('res', this.planet);
         page++;
       })
-    } while (this.planetObject && this.planetObject.next)
+
   }
 
   vehicles: any;
