@@ -1,7 +1,7 @@
 <div class="tableDiv">
 <mat-form-field appearance="fill">
   <mat-label>Search people</mat-label>
-  <input matInput (input)="applyFilter($event)" placeholder="Eg. Hoth" #input>
+  <input matInput (input)="applyFilter($event)" placeholder="Eg. Luke" #input>
 </mat-form-field>
 
   <table *ngIf="peopleObject" mat-table [dataSource]="peopleObject.results" class="mat-elevation-z8" matSort
