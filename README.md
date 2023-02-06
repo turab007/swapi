@@ -2,26 +2,19 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.3.
 
-## Development server
+## Run application locally
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+1. clone the project
+2. Navigate to the project and run `npm install`.
+3. Run `npm run start` to run the dev server. 
+4. Navigate to `http://localhost:4200/` to see the running application.
 
-## Code scaffolding
+## Run docker image
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+If you have docker installed then you can run the docker image by following these steps
 
-## Build
+1. Install docker image from `https://drive.google.com/file/d/1KsWZPBjom8qVCEJcoeY9M66QWnQjgcrq/view?usp=share_link`
+2. Import docker image by running `docker load -i ./starwars.tar`
+3. Then run `docker run --rm -d  -p 4202:80/tcp swapi`
+3. Open `http://localhost:4202/` and the application would be running
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
