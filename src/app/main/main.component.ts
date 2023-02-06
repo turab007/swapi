@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class MainComponent {
 
+  loading: boolean = false;
+
+
+  showLoader($event: any) {
+    setTimeout(() => {
+      this.loading = $event
+    }, 100);
+  }
 }

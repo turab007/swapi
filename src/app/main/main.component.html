@@ -10,8 +10,13 @@
 </div>
 <hr>
 
-<app-planet *ngIf="group.value === 'planet'"></app-planet>
+<app-planet (loading_data)="showLoader($event)" *ngIf="group.value === 'planet'"></app-planet>
 
-<app-people *ngIf="group.value === 'people'"></app-people>
+<app-people (loading_data)="showLoader($event)" *ngIf="group.value === 'people'"></app-people>
 
-<app-starship *ngIf="group.value === 'starship'" ></app-starship>
+<app-starship (loading_data)="showLoader($event)" *ngIf="group.value === 'starship'" ></app-starship>
+
+
+<div *ngIf="loading" class="cssload-container">
+  <div class="cssload-speeding-wheel"></div>
+</div>
